@@ -12,14 +12,12 @@ import Logout from "./Logout";
 import useUser from "../_hooks/useUser";
 
 export default function CustomRouter() {
-  const { userState, loaded, isLoggedIn } = useUser();
-
-  React.useEffect(() => {
-    console.log(userState, loaded);
-  });
+  // useUser is a custom hook (src/_hooks/useUser.tsx)
+  const { isLoggedIn, loaded } = useUser();
 
   return (
     <Router>
+      {/* 👇 this is a ternary operator */}
       {!loaded ? null : isLoggedIn() ? (
         <Switch>
           <Route path="/logout">

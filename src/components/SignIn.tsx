@@ -7,7 +7,6 @@ enum INPUTS {
 }
 
 export default function SignIn() {
-  const [isCreatingNewAccount, setIsCreatingNewAccount] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [errorResponse, setErrorResponse] = React.useState("");
@@ -45,9 +44,6 @@ export default function SignIn() {
         default:
           setErrorResponse("An unknown error has occured");
       }
-      console.error(err);
-      console.log(err.code);
-      console.log(err.message);
     });
   };
 
