@@ -69,7 +69,7 @@ export default function SignIn() {
   };
 
   return (
-    <div>
+    <div className="sign_in">
       <span>Email:</span>
       <input
         type="text"
@@ -82,12 +82,10 @@ export default function SignIn() {
         value={password}
         onChange={updateValue.bind(null, INPUTS.password)}
       />
-      <div>{errorResponse}</div>
+      <div className="error_response">{errorResponse}</div>
       <button onClick={trySignIn}>Sign in</button>{" "}
       <button onClick={trySignUp}>Sign up</button>
-      <br />
-      <span>Or sign in with </span>
-      <button onClick={trySignInWithGoogle}>Google</button>
+      <button onClick={trySignInWithGoogle}>Or sign in with Google</button>
     </div>
   );
 }
