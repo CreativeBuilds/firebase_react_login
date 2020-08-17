@@ -1,22 +1,18 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import useUser from "../_hooks/useUser";
 
-// an interface also comes from typescript and is used
-// to describe what paramaters are getting passed into UserInfo
-interface IProps {
-  user: firebase.User;
-}
-
-export default function UserInfo(params: IProps) {
-  return params.user == null ? (
+export default function UserInfo() {
+  const { isLoggedIn, userState } = useUser();
+  return isLoggedIn() ? (
     <div>
-      Insuffiecent permissions, please sign in <Link to="/signin">here</Link>
+      You're on the user info page and your email is <b>{userState.email}</b>.
+      If you see this, that means you have succesfully logged in! Alternatively
+      you can <Link to="/logout">sign out.</Link>
     </div>
   ) : (
     <div>
-      You're on the user info page and your email is <b>{params.user.email}</b>.
-      If you see this, that means you have succesfully logged in! Alternatively
-      you can <Link to="/logout">sign out.</Link>
+      Insuffiecent permissions, please sign in <Link to="/signin">here</Link>
     </div>
   );
 }

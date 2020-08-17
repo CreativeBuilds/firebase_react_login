@@ -29,7 +29,7 @@ export default function CustomRouter() {
             <Redirect to="/user"></Redirect>
           </Route>
           <Route path="/user">
-            <UserInfo user={userState} />
+            <UserInfo />
           </Route>
         </Switch>
       ) : (
